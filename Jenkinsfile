@@ -9,7 +9,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Test'
-        sh '/bin/nc -vz localhost 80'
+        sh '/bin/nc -vz localhost 22'
       }
     }
     stage('Deploy') {
