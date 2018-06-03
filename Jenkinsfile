@@ -3,22 +3,20 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t app .'
-      }
-    }
-    stage('Test1') {
-      steps {
-        echo 'Test1'
+        sh 'docker build -t app:test .'
       }
     }
     stage('Test') {
       steps {
-        echo 'Test message'
+        echo 'Test'
+        sh '/bin/nc -vz localhost 80'
       }
     }
     stage('Deploy') {
       steps {
-        echo 'Deploy message'
+        echo 'Deploy'
+        sh 'docker tag app:test app:stable'
+        sh 'docker push app:stable'
       }
     }
   }
