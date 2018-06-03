@@ -21,7 +21,7 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploy'
-        withDockerRegistry(credentialsId: '8106217a-130d-49e3-8b15-d705e0034241', url: '""') {
+        withDockerRegistry(credentialsId: '8106217a-130d-49e3-8b15-d705e0034241', url: '') {
           sh 'docker tag app:test dppascual/app:stable'
           sh 'docker push dppascual/app:stable'
         }
