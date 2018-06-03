@@ -6,6 +6,11 @@ pipeline {
         sh 'docker build -t app .'
       }
     }
+    stage('Test1') {
+      steps {
+        echo 'Test1'
+      }
+    }
     stage('Test') {
       steps {
         echo 'Test message'
